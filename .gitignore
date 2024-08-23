@@ -1,0 +1,22 @@
+# ignore the .env file
+*.env
+
+# ignore the virutal env
+ai_project/bin/
+ai_project/include/
+ai_project/lib/
+ai_project/pyvenv.cfg
+ai_project/share/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore MacOS-specific files
+.DS_Store
+
+# Ignore log files
+*.log
+
+# also ignore .txt
+notes.txt
