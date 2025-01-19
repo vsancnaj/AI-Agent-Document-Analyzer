@@ -13,3 +13,11 @@ Here is the conversation history: {context}
 Question: {question}
 Answer: 
 """
+
+link_response_template = """
+Here are the links extracted from the document:
+
+{links}
+
+Now, based on these links, generate a useful answer that explains what they are related to and how they can help the user.
+"""
