@@ -1,60 +1,94 @@
-# AI-Agent Document Analyzer
+# **AI-Agent Document Analyzer**
 
-This project is an AI-powered document analysis bot designed to process and extract information from PDF documents. It leverages the LlamaIndex library, LangChain, and Ollama models to parse, analyze, and interact with the content of these documents. The bot is capable of handling user queries and providing relevant information based on the PDFs it processes.
+This project is an **AI-powered document analysis bot** that processes and extracts information from PDF documents. It uses **LlamaIndex**, **LangChain**, and **Ollama** models to parse, analyze, and interact with document content. The bot intelligently handles user queries, retrieving only **relevant information** from the PDFs.
 
-**My goal with this project is two fold: to deepen my understanding of large language models (LLMs) and to employ Retrieval-Augmented Generation (RAG) to mitigate hallucinations that can occur with these models. By feeding the model my own curated information, I aim to create a tool that works effectively for my needs.**
+## **🚀 Why I Built This**
+1. **To deepen my understanding of LLMs** by building a practical, hands-on project.
+2. **To implement Retrieval-Augmented Generation (RAG)**, reducing hallucinations by feeding the model curated, factual data.
+3. **To create a tool I wish I had during my thesis**—an AI that could compare and summarize research papers interactively.
 
-**I wish I had access to something like this during my thesis work—having a tool that could compare and answer questions about the numerous research papers I had to read on computer vision would have been invaluable. My vision is to develop this into a tool that facilitates interactive conversations between the model and the user about any document they provide.**
+This project is still **a work in progress**. I am continuously enhancing the bot by adding new tools and improving the **clarity and readability** of responses. Running a **local Ollama model** ensures **privacy** and eliminates API costs, allowing unrestricted experimentation.
 
-**Keep in mind!**
-This project is still a work in progress. My goal is to continuously enhance the bot by adding more tools to the agent, making it increasingly useful. Currently, one of the main areas I am working on is improving the clarity and readability of the output. By using a local Ollama model, I not only benefit from enhanced privacy, but also from cost savings, allowing me to experiment freely without worrying about additional expenses.
+---
 
-## Features
+## **✨ Features**
+- **📄 PDF Parsing** – Extracts and interprets text from PDFs using `LlamaParse`.
+- **🔍 Intelligent Querying** – Uses embeddings and vector search to **find only the most relevant** sections of documents.
+- **📊 Vector Database** – Stores and retrieves information efficiently.
+- **🤖 ReAct Agent** – Selects the appropriate tools to answer user queries dynamically.
+- **💬 Interactive Chatbot** – Engages in real-time conversations about the documents.
+- **🔗 Smart Link Extraction** – Extracts **only** the links relevant to the user’s query, not all links.
 
-- **PDF Parsing**: Parses and interprets text from PDF documents using `LlamaParse`.
-- **Vector Embedding**: Converts document text into vector embeddings using a local model.
-- **Vector Database**: Stores vectorized document data in a vector-based database, allowing for efficient and accurate querying.
-- **Query Engine**: Utilizes the vector database to query and retrieve information from the documents.
-- **ReAct Agent**: Uses a ReActAgent to determine the appropriate tools and actions to answer user queries.
-- **Interactive Bot**: Engages in conversations, answering questions based on the content of the loaded documents.
+---
 
-## Installation
+## **⚙️ Prerequisites**
+Before running the project, ensure you’ve set up the environment:
 
+### **1️⃣ Install Ollama (No API Key Needed)**
+- Download and install **Ollama** (free & local).
+- Verify Ollama is running:
+    ```sh
+    ollama list
+    ```
+
+### **2️⃣ Get a LlamaParse API Key (Free)**
+- **Sign up for a key**: [LlamaParse](https://llamaindex.ai/)
+- **Add it to your `.env` file**:
+    ```plaintext
+    LLAMA_PARSE_API_KEY=your_api_key
+    ```
+
+### **3️⃣ Use Local Embeddings (No API Key Required)**
+- Ensure the embedding model is accessible:
+    ```sh
+    local:BAAI/bge-m3
+    ```
+
+---
+
+## **📥 Installation**
 1. **Clone the Repository**:
-    ```bash
+    ```sh
     git clone https://github.com/your-username/AI-Agent-Document-Analyzer.git
     cd AI-Agent-Document-Analyzer
     ```
 
 2. **Install Dependencies**:
-    Ensure that Python is installed on your system. Then, install the required packages:
-    ```bash
+    ```sh
     pip install -r requirements.txt
     ```
 
 3. **Set Up Environment Variables**:
-    Create a `.env` file in the root directory and add any necessary API keys or configurations.
+    - Create a `.env` file.
+    - Add your **LlamaParse API key**.
 
 4. **Prepare Data**:
-    Place your PDF documents in the `data` directory. The bot will parse and analyze these files.
+    - Place your **PDF documents** inside the `data` directory.
 
-## Usage
+---
 
-To start the document analysis bot, run:
-
-```bash
+## **▶️ Usage**
+Start the document analysis bot:
+```sh 
 python main.py
-```
-## Example Queries
+``` 
+## **📝 Example Queries**
+"Summarize this document."
+"What are the key concepts discussed?"
+"What is the objective of this research paper?"
 
-- "What are the main key concepts of the documents?"
-- "Summarize the content of the research paper."
-- "What is the objective of the document?"
 
-## Code Overview
+## **🛠️ Code Overview**
+| Component                 | Functionality                                              |
+|---------------------------|----------------------------------------------------------|
+| LlamaParse               | Parses PDFs into a structured format.                     |
+| VectorStoreIndex         | Converts document text into embeddings for search.       |
+| Query Engine             | Finds and retrieves only the most relevant sections.     |
+| ReAct Agent              | Dynamically decides which tools to use based on queries. |
+| Intent Classifier        | Determines if a query needs general info or links.       |
+| Contextual Link Finder   | Extracts only the relevant links based on user queries.  |
 
-- **LlamaParse**: Used to parse PDF documents into a format that the program can process.
-- **VectorStoreIndex**: Converts document text into vectors and stores them in a vector-based database, allowing for efficient querying.
-- **Query Engine**: Wraps the vector database to provide a powerful querying interface.
-- **ReActAgent**: An agent that uses the llama3 model to handle reasoning and action decisions during interactions.
-- **PromptTemplate**: Defines the format for the bot’s responses.
+## **🛠️ Future Improvements**
+- Improve response formatting for better clarity.
+- Enhance multi-document support.
+- Integrate better summarization techniques for long documents.
