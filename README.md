@@ -49,7 +49,7 @@ Before running the project, ensure you’ve set up the environment:
 ## **📥 Installation**
 1. **Clone the Repository**:
     ```sh
-    git clone https://github.com/your-username/AI-Agent-Document-Analyzer.git
+    git clone https://github.com/vsancnaj/AI-Agent-Document-Analyzer.git
     cd AI-Agent-Document-Analyzer
     ```
 
